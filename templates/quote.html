@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="/static/style.css">
+<header class="header-quote">
+  <div class="main-div-quote">
+    <div class="left-quote"></div>
+    <div class="right-quote">
+      <h2>Fuel Quote</h2>
+      <form method="POST">
+       <label for="gallon" >Gallons Requested</label>
+      <input type="number" id="gallon" name="gallon" placeholder="Gallons Required" required>
+
+     <label for="delivery">Delivery Address</label>
+     <input type="text" id="delivery" name="delivery" placeholder="Delivery Address" >
+
+      <label for="datetime">Delivery Date</label>
+      <input type="datetime-local" id="datetime" name="datetime">
+
+      <label for="price">Suggested Price</label>
+      <input type="number" id="price" name="price">
+
+      <label for="totalamt">Total Amount</label>
+      <input type="number" id="totalamt" name="totalamt">
+
+      <input type="submit" value="Submit" class="submitbtn-quote">
+      {% with messages = get_flashed_messages(category_filter=["error"])%}
+        {% if messages %}
+          {% for msg in messages%}
+            <div class="error_msg">Error! - {{msg}}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      {% with messages = get_flashed_messages(category_filter=["success"])%}
+        {% if messages %}
+          {% for msg in messages%}
+            <div class="success_msg">Success - {{msg}}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      </form>
+
+      <div class="create-quote">
+        <a href="index.html" class="back-quote">Go Back</a>
+      </div>
+    </div>
+  </div>
+</header>

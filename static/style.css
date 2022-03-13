@@ -1,0 +1,351 @@
+/* ------------------------------index------------------------------- */
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    margin-top: 5px;
+}
+body{
+    background-image: url("1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.navbar{
+    background-color: rgb(19, 5, 5);
+    border-radius: 26px;
+}
+.navbar li{
+    display: inline-block;
+    /* padding: 5px 5px; */
+    margin: 15px 15px;
+}
+.navbar li a{
+    padding: 5px 5px;
+    text-decoration: none;
+    color: whitesmoke;
+    transition: 2s;
+}
+.navbar li a:hover{
+    background-color: blue;
+}
+.login-botton, .signup-botton{
+    background-color: red;
+}
+/* -------------------------Login-Form------------------- */
+.header-image{
+    background-image: url("9.jfif");
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+}
+.main-div{
+    width: 1000px;
+    height: 500px;    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+.left{
+    background-image: url("2.jpg");
+    width: 20vw;   /*50vw*/
+    height: 300px;
+    background-size: 100% 100%;
+}
+.right{
+    width: 20vw;
+    height: 300px;
+    background-color: whitesmoke;
+    padding-left: 30px;
+}
+  
+.right h2{
+    display: block;
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+}
+  
+.right form label{
+    font-size: 20px;
+    display: block;
+    margin-top: 10px;
+}
+.right form input{
+    padding: 5px;
+    border-radius: 10px;
+}
+.submitbtn{
+    display: block;
+    margin-top: 5px;
+    background-color: red;
+    color: white;
+}
+  
+.submitbtn:hover{
+    background-color: rgba(12, 38, 153, 0.425);
+}
+  
+.space{
+    text-align: center;
+}
+.create p{
+    font-size: 20px;
+}
+.create a{
+    text-decoration: none;
+}
+.back{
+    padding-left: 140px;
+}
+/* -------------------------Signup-Form------------------- */
+.header-image{
+    background-image: url("9.jfif");
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+}
+.clienth2{
+  font-size: 20px;
+}
+.main-div{
+    width: 1000px;
+    height: 500px;    /*300*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+.left-signup{
+    background-image: url("10.png");
+    width: 20vw;   /*50vw*/
+    height: 300px;
+    background-size: 100% 100%;
+}
+.right{
+    width: 20vw;
+    height: 325px;
+    background-color: whitesmoke;
+    padding-left: 30px;
+}
+  
+.right h2{
+    display: block;
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+}
+  
+.right form label{
+    font-size: 20px;
+    display: block;
+    margin-top: 10px;
+}
+.right form input{
+    padding: 5px;
+    border-radius: 10px;
+}
+.submitbtn{
+    display: block;
+    margin-top: 5px;
+    background-color: red;
+    color: white;
+}
+  
+.submitbtn:hover{
+    background-color: rgba(12, 38, 153, 0.425);
+}
+  
+.space{
+    text-align: center;
+}
+.create p{
+    font-size: 20px;
+}
+.create a{
+    text-decoration: none;
+}
+.back{
+    padding-left: 140px;
+}
+
+/* --------------------------------Client Register form----------------------------- */
+.header-image2{
+    background-image: url("17.jpg");
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+.main-div-reg{
+    width: 1000px;
+    height: 500px;    /*300*/
+    position: absolute;
+    top: 45%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+.left-reg-client{
+    background-image: url("10.png");
+    width: 20vw;   /*50vw*/
+    height: 60vh;
+    background-size: 100% 100%;
+}
+.right-reg{
+    width: 20vw;
+    height: 80vh;
+    background-color: whitesmoke;
+    padding-left: 30px;
+}
+  
+.right-reg h2{
+    display: block;
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+}
+  
+.right-reg form label{
+    font-size: 20px;
+    display: block;
+    margin-top: 10px;
+}
+.right-reg form input{
+    padding: 5px;
+    border-radius: 10px;
+}
+.right-reg form select{
+    padding: 5px;
+    border-radius: 10px;
+}
+.submitbtn-reg{
+    display: block;
+    margin-top: 5px;
+    background-color: red;
+    color: white;
+}
+.error_msg{
+    color: red;
+}
+.success_msg{
+    color: green
+}
+.submitbtn-reg:hover{
+    background-color: rgba(12, 38, 153, 0.425);
+}
+  
+.space-reg{
+    text-align: center;
+}
+.create-reg p{
+    font-size: 20px;
+}
+.create-reg a{
+    text-decoration: none;
+}
+.back-reg{
+    padding-left: 140px;
+    display: inline-block;
+    padding-top: 10px;
+}
+
+/* ----------------------------------Quote form---------------------------------- */
+.header-quote{
+    background-image: url("16.jpg");
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+.main-div-quote{
+    width: 1000px;
+    height: 500px;  
+    position: absolute;
+    top: 45%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+#delivery{
+    width: 90%;
+}
+.left-quote{
+    background-image: url("21.jpg");
+    width: 20vw;  
+    height: 60vh;
+    background-size: 100% 100%;
+}
+.right-quote{
+    width: 20vw;
+    height: 60vh;
+    background-color: whitesmoke;
+    padding-left: 30px;
+}
+  
+.right-quote h2{
+    display: block;
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+}
+  
+.right-quote form label{
+    font-size: 20px;
+    display: block;
+    margin-top: 10px;
+}
+.right-quote form input{
+    padding: 5px;
+    border-radius: 10px;
+}
+.right-quote form select{
+    padding: 5px;
+    border-radius: 10px;
+}
+.create-quote a{
+    text-decoration: none;
+}
+.back-quote{
+    padding-top: 10px;
+    display: block;
+}
+.submitbtn-quote{
+    display: block;
+    margin-top: 5px;
+    background-color: red;
+    color: white;
+}
+/*------------------------------------- history form -----------------------------------*/
+.table-history{
+    margin: auto;
+    width: 45%;
+    border: 5px solid black;
+    border-radius: 20px;
+    padding: 10px;
+  }
+  .create-history{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+  }
+  .caption-history{
+    color: red;
+  }
+  .p-history{
+      color: red;
+  }
+  .a-history{
+      text-decoration: none;
+  }
+  th{
+      padding: 5px;
+  }
+  
+
+
+
+
+  

@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="/static/style.css">
+<header class="header-image">
+  <div class="main-div">
+    <div class="left"></div>
+    <div class="right">
+      <h2>Sign In</h2>
+      <form action="" method="POST">
+       <label >Username</label>
+      <input type="text" placeholder="Username" name="loginid" required>
+
+     <label>Password</label>
+     <input type="password" placeholder="Password" name="loginpw" required>
+
+     <input type="submit" value="Sign In" class="submitbtn">
+     {% with messages = get_flashed_messages(category_filter=["error"])%}
+        {% if messages %}
+          {% for msg in messages%}
+            <div class="error_msg">Error! - {{msg}}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      </form>
+      <div class="space">
+        <p>OR</p>
+      </div>
+      <div class="create">
+        <p>Create an account?</p>
+      <a href="signup.html">Sign Up</a>
+      <a href="index.html" class="back">Go Back</a>
+      </div>
+    </div>
+  </div>
+</header>

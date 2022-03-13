@@ -1,0 +1,63 @@
+
+
+
+<link rel="stylesheet" href="/static/style.css">
+<header class="header-image2">
+  <div class="main-div-reg">
+    <div class="left-reg-client"></div>
+    <div class="right-reg">
+      <h2>Client Profile Management</h2>
+      <form action="" method="POST">
+       <label for="FullName" >Full Name</label>
+      <input type="text" id="FullName" name="FullName" placeholder="Full Name" maxlength="50" required>
+
+      <label for="address">Address 1</label>
+    <input type="text" id="address" name="address" placeholder="Address 1" maxlength="100" required>
+
+    <label for="address-2">Address 2</label>
+    <input type="text" id="address-2" name="address-2" placeholder="Address 2" maxlength="100">
+
+    <label for="city">City</label>
+    <input type="text" id="city" name="city" placeholder="City" maxlength="100" required>
+
+    <label for="state">Select Your State:</label>
+    <select name="state" id="state">
+      <option value="no-opt">Pick Your State:</option>
+      <option value="TX">TX</option>
+      <option value="ND">ND</option>
+      <option value="NM">NM</option>
+      <option value="CO">CO</option>
+      <option value="AK">AK</option>
+    </select>
+
+     <label for="zipcode">Zip Code</label>
+     <input id="zipcode" name="zipcode" type="text" pattern="[0-9]*" maxlength="10" required>
+     
+     <input type="submit" value="Sign Up" class="submitbtn-reg">
+     {% with messages = get_flashed_messages(category_filter=["error"])%}
+        {% if messages %}
+          {% for msg in messages%}
+            <div class="error_msg">Error! - {{msg}}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      {% with messages = get_flashed_messages(category_filter=["success"])%}
+        {% if messages %}
+          {% for msg in messages%}
+            <div class="success_msg">Success - {{msg}}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      </form>
+      <div class="space-reg">
+        <p>OR</p>
+      </div>
+      <div class="create-reg">
+        <p> have an Account Already?</p>
+      <a href="login.html">Sign In</a>
+      <a href="index.html" class="back-reg">Go Back</a>
+      </div>
+    </div>
+  </div>
+</header>
