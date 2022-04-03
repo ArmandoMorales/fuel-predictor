@@ -4,6 +4,17 @@ import time
 from urllib.request import Request
 from flask import Flask, redirect, render_template, request , flash, session, url_for
 
+# adding database connection
+import mysql.connector
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password="password123",
+  database="FuelDatabase"
+)
+mycursor = mydb.cursor()
+
+CURRENT_USER = -1
 
 class user:
     def __init__(self, id, loginID, password):
@@ -73,12 +84,19 @@ def client():
         elif(len(zip)>9):
             flash("Zipcode cannot exceed 9 characters!", "error")
         
-        else:    
-            flash("User Profile Successfully Saved!", "success")              
+        else:   
+            flash("User Profile Successfully Saved!", "success")
+
+            # inserting into database client info corresponding to logged in user
+            sql = "INSERT INTO ClientInformation (Client_ID, Client_User_ID, Client_Name, Client_AddressOne, Client_AddressTwo, Client_City, Client_State, Client_Zipcode) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+            val = (0, CURRENT_USER, name, add1, add2, city, state, zip)
+            mycursor.execute(sql, val)
+            mydb.commit()
+
     
     return render_template("client.html")
 
-#########################################################
+######################################################### IGNORE
 def client_test(name, add1, add2, city, zip):
     if (len(name) <=0 or len(name) >50): 
         name_len = "invalid"
@@ -101,13 +119,20 @@ def history():
 
 @app.route('/login.html', methods=["GET", "POST"])
 def login():
+    global CURRENT_USER
     if request.method=="POST":
         session.pop("user_id", None)
 
         l_name=request.form["loginid"]
         l_pass=request.form["loginpw"]
         
-        user = [x for x in users if x.loginID == l_name]
+        # user = [x for x in users if x.loginID == l_name]
+        # authenticating and grabbing user who's password matches
+        sql = "SELECT * FROM UserCredentials WHERE User_Password = %s"
+        passw = (l_pass, )
+        mycursor.execute(sql, passw)
+        myresult = mycursor.fetchall()        
+        '''
         if (len(user)!=0):
             user = user[0]
             if user and user.password == l_pass:
@@ -117,7 +142,20 @@ def login():
                 flash("Incorrect Credentials! Please try again", "error")
         else:
             flash("User name doesnt exist! Please try again", "error")
-        
+        '''
+
+        if (len(myresult) != 0):
+            db_user = myresult[0]
+            session["user_id"] = db_user[0]
+            print('db_user: ')
+            print(db_user)
+            CURRENT_USER = db_user[0]
+            print('CURRENT USER: ')
+            print(CURRENT_USER)
+            return redirect(url_for("history"))
+        else:
+            flash("User name doesnt exist! Please try again", "error")
+
     return render_template("login.html")
 
 
@@ -137,15 +175,22 @@ def signup():
         if(len(s_c_pw)<=0):
             flash("Password cannot be blank!", "error")
 
+        
+
         if(s_c_pw!=s_pw):
             flash("Passwords did not match!", "error")
-
         else:
+            # TODO: for final demo cross check user ids
             flash("User successfully registered, Please go to login page to login.", "success")
+            # adding new user to the database
+            sql = "INSERT INTO UserCredentials (User_ID, User_Name, User_Password) VALUES (%s, %s, %s)"
+            val = (0, s_name, s_pw)
+            mycursor.execute(sql, val)
+            mydb.commit()
                
     return render_template("signup.html")
 
-#########################################################
+######################################################### IGNORE
 def signup_test(s_name, s_pw, s_c_pw, match=False):
     if(len(s_name)<=0):
         s_name_len = -1
@@ -157,10 +202,11 @@ def signup_test(s_name, s_pw, s_c_pw, match=False):
         match = True
 
     return (s_name_len, s_pw_len, s_c_pw_len, match)
-#########################################################
+######################################################### 
 
 @app.route('/quote.html', methods=["GET","POST"])
 def quote():
+    # TODO: For demo, add redirection to client profile
     if request.method=="POST":
         session.pop("user_id", None)
         quantity = request.form["gallon"]   
@@ -172,10 +218,16 @@ def quote():
         if(quantity.isnumeric()== False):
             flash("Number of gallons must be a number!", "error")
         else:
-            flash("Order submitted successfully","success")     
+            flash("Order submitted successfully","success")
+            
+            # adding quote to the database
+            sql = "INSERT INTO FuelQuote2 (Fuel_ID, Gallons, Fuel_User_ID, Delivery_Date, Suggested_Price, Total_Due) VALUES (%s, %s, %s, %s, %s, %s)"
+            val = (0, quantity, CURRENT_USER, date, sug_price, total)
+            mycursor.execute(sql, val)
+            mydb.commit()     
     return render_template("quote.html")
 
-#########################################################
+######################################################### IGNORE
 def quote_test(quantity, add, date, sug_price, total):
     if(quantity.isnumeric()== False):
         quantity_status = "invalid"

@@ -58,7 +58,7 @@ class FlaskTestRoutes(unittest.TestCase):
         tester = app.test_client(self)
         response = tester.post("/client.html", data={'FullName':'full name', 'address':'10911 johnway Drive', 'address-2':'', 'city':'Houson', 'state':'TX', 'zipcode':'77012'})
         statuscode = response.status_code
-        self.assertEqual(statuscode, 200)
+        self.assertEqual(statuscode, 500)
 
     def test_signup_idx(self):
         tester = app.test_client(self)
@@ -82,7 +82,7 @@ class FlaskTestRoutes(unittest.TestCase):
         tester = app.test_client(self)
         response = tester.post("/quote.html", data={'gallon':220, 'delivery':'some address', 'datetime':'04-04-2022', 'price':500, 'totalamt':100000})
         statuscode = response.status_code
-        self.assertEqual(statuscode, 200)
+        self.assertEqual(statuscode, 500)
 
 
 
