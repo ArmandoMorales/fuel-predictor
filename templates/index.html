@@ -13,12 +13,14 @@
         <nav class="navbar">
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="contact.html">Contact</a></li>
             <li><a href="quote.html">Fuel-Quote</a></li>
             <li><a href="history.html">Fuel-Quote-History</a></li>
             <li><a href="client.html" class="register-botton">Client Profile</a></li>
-            <li><a href="login.html" class="login-botton">Login</a></li>
-            <li><a href="signup.html" class="signup-botton">Client Registration</a></li>
+            <!-- <li><a href="login.html" class="login-botton">Login</a></li> -->
+            <!-- <li><a href="signup.html" class="signup-botton">Client Registration</a></li> -->
+            <li><a href="">Welcome, {{ User_Name }}</a></li>
+            <!-- <li><a href="logout.html">Log Out</a></li>-->
+            <li><button onclick="window.location = 'http://127.0.0.1:5000/dropsession'" type="submit">Log Out</button></li>
           </ul>
         </nav>
       </header>

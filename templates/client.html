@@ -1,10 +1,22 @@
-
-
-
 <link rel="stylesheet" href="/static/style.css">
 <header class="header-image2">
   <div class="main-div-reg">
-    <div class="left-reg-client"></div>
+    <div class="left-reg">
+      <h2>Client Profile</h2>
+      <label for="FullName" id="cfname" class="db-input">Full Name</label>
+      <p style="color:white;"> {{ name }} </p>
+      <label for="address" id="cadd1" class="db-input">Address 1</label>
+      <p style="color:white;"> {{ add1 }} </p>
+      <label for="address-2" id="cadd2" class="db-input">Address 2</label>
+      <p style="color:white;"> {{ add2 }} </p>
+      <label for="city" id="ccity" class="db-input">City</label>
+      <p style="color:white;"> {{ city }} </p>
+      <label for="state" id="cstate" class="db-input">State:</label>
+      <p style="color:white;"> {{ state }} </p>
+      <label for="zipcode" id="czip" class="db-input">Zip Code</label>
+      <p style="color:white;"> {{ zip }} </p>
+    </div>
+    <!-- <div class="left-reg-client"></div> -->
     <div class="right-reg">
       <h2>Client Profile Management</h2>
       <form action="" method="POST">
@@ -33,7 +45,7 @@
      <label for="zipcode">Zip Code</label>
      <input id="zipcode" name="zipcode" type="text" pattern="[0-9]*" maxlength="10" required>
      
-     <input type="submit" value="Sign Up" class="submitbtn-reg">
+     <input type="submit" value="Update Info" class="submitbtn-reg">
      {% with messages = get_flashed_messages(category_filter=["error"])%}
         {% if messages %}
           {% for msg in messages%}
@@ -51,11 +63,11 @@
       {% endwith %}
       </form>
       <div class="space-reg">
-        <p>OR</p>
+        <!-- <p>OR</p> -->
       </div>
       <div class="create-reg">
-        <p> have an Account Already?</p>
-      <a href="login.html">Sign In</a>
+        <!-- <p> have an Account Already?</p> -->
+      <!-- <a href="login.html">Sign In</a> -->
       <a href="index.html" class="back-reg">Go Back</a>
       </div>
     </div>

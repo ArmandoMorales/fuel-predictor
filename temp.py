@@ -345,26 +345,26 @@ def quote():
         # sug_price = request.form["price"]   
         # total = request.form["totalamt"]
 
-        #if(quantity.isnumeric()== False):
+        if(quantity.isnumeric()== False):
             # flash("Number of gallons must be a number!", "error")
-        #elif date == "":
+            pass
+        elif date == "":
             # flash("Date cannot be empty", "error")
-        #else:
-        # check which button was clicked
-        if request.form['get-quote-btn'] == 'GetQuote':
-            # flash("Order submitted successfully","success")
-            '''
-            # adding quote to the database
-            sql = "INSERT INTO FuelQuote2 (Fuel_ID, Gallons, Fuel_User_ID, Delivery_Date, Suggested_Price, Total_Due) VALUES (%s, %s, %s, %s, %s, %s)"
-            val = (0, quantity, CURRENT_USER, date, sug_price, total)
-            mycursor.execute(sql, val)
-            mydb.commit() 
-            '''
-            if(quantity.isnumeric()== False):
-                flash("Number of gallons must be a number!", "error")
-            elif date == "":
-                flash("Date cannot be empty", "error")
-            else:
+            pass
+        else:
+            # check which button was clicked
+            if request.form['get-quote-btn'] == 'GetQuote':
+                # flash("Order submitted successfully","success")
+                '''
+                # adding quote to the database
+                sql = "INSERT INTO FuelQuote2 (Fuel_ID, Gallons, Fuel_User_ID, Delivery_Date, Suggested_Price, Total_Due) VALUES (%s, %s, %s, %s, %s, %s)"
+                val = (0, quantity, CURRENT_USER, date, sug_price, total)
+                mycursor.execute(sql, val)
+                mydb.commit() 
+                '''
+
+                
+
                 sql = "SELECT * FROM ClientInformation WHERE Client_User_ID = %s"
                 adr = (session['User_ID'], )
                 mycursor.execute(sql, adr)
@@ -418,28 +418,24 @@ def quote():
                 # print(LAST_INSERTED_ID)
 
                 return render_template("quote.html", delivery_address=delivery_address, add2=add2, suggested_price=suggested_price,  total_amt_due=total_amt_due)
-        elif request.form['get-quote-btn'] == 'Submit':
-            # presssed submit button
-            sql = "SELECT * FROM TEMP WHERE Fuel_ID = %s"
-            adr = (LAST_INSERTED_ID, )
-            # print ('seddion id', session['User_ID'])
-            mycursor.execute(sql, adr)
-            myresult = mycursor.fetchall()
-            if len(myresult) > 0:
-                gals_from_temp = myresult[0][1]
-                delivery_date_from_temp = myresult[0][2]
-                suggested_from_temp = myresult[0][3]
-                total_from_temp = myresult[0][4]
+            elif request.form['submit-quote-btn'] == 'Submit':
+                # presssed submit button
+                sql = "SELECT * FROM TEMP WHERE Fuel_ID = %s"
+                adr = (LAST_INSERTED_ID, )
+                # print ('seddion id', session['User_ID'])
+                mycursor.execute(sql, adr)
+                myresult = mycursor.fetchall()
+                if len(myresult) > 0:
+                    gals_from_temp = myresult[0][1]
+                    delivery_date_from_temp = myresult[0][2]
+                    suggested_from_temp = myresult[0][3]
+                    total_from_temp = myresult[0][4]
 
-            # insert into FuelQuote2
-            sql = "INSERT INTO FuelQuote2 (Fuel_ID, Gallons, Fuel_User_ID, Delivery_Date, Suggested_Price, Total_Due) VALUES (%s, %s, %s, %s, %s, %s)"
-            val = (0, gals_from_temp, session['User_ID'], delivery_date_from_temp, suggested_from_temp, total_from_temp)
-            mycursor.execute(sql, val)
-            mydb.commit()
-
-            flash("Order submitted successfully","success")
-
-
+                # insert into FuelQuote2
+                sql = "INSERT INTO TEMP (Fuel_ID, Gallons, Fuel_User_ID, Delivery_Date, Suggested_Price, Total_Due) VALUES (%s, %s, %s, %s, %s, %s)"
+                val = (0, gals_from_temp, session['User_ID'], delivery_date_from_temp, suggested_from_temp, total_from_temp)
+                mycursor.execute(sql, val)
+                mydb.commit()
 
     sql = "SELECT * FROM ClientInformation WHERE Client_User_ID = %s"
     adr = (session['User_ID'], )

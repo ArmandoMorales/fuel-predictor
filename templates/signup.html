@@ -30,12 +30,14 @@
       {% endwith %}
       </form>
       <div class="space">
-        <p>OR</p>
+        <!-- <p>OR</p> -->
       </div>
       <div class="create">
-        <p>Manage your profile</p>
-      <a href="client.html">Client Profile</a>
-      <a href="index.html" class="back">Go Back</a>
+        <!-- <p>Manage your profile</p> -->
+      <!-- <a href="client.html">Client Profile</a> -->
+        <br>
+        <p>Return to Login?</p>
+      <a href="{{ url_for('index') }}" class="back">Login</a>
       </div>
     </div>
   </div>

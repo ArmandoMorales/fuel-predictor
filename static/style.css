@@ -30,7 +30,7 @@ body{
 .navbar li a:hover{
     background-color: blue;
 }
-.login-botton, .signup-botton{
+.login-botton, .signup-botton, .Logout-bttn{
     background-color: red;
 }
 /* -------------------------Login-Form------------------- */
@@ -54,7 +54,7 @@ body{
 .left{
     background-image: url("2.jpg");
     width: 20vw;   /*50vw*/
-    height: 300px;
+    height: 376px;
     background-size: 100% 100%;
 }
 .right{
@@ -131,7 +131,7 @@ body{
 }
 .right{
     width: 20vw;
-    height: 325px;
+    height: 375px;
     background-color: whitesmoke;
     padding-left: 30px;
 }
@@ -172,10 +172,12 @@ body{
     text-decoration: none;
 }
 .back{
-    padding-left: 140px;
+    padding-left: 1px;
 }
 
+
 /* --------------------------------Client Register form----------------------------- */
+/*
 .header-image2{
     background-image: url("17.jpg");
     width: 100vw;
@@ -184,16 +186,17 @@ body{
 }
 .main-div-reg{
     width: 1000px;
-    height: 500px;    /*300*/
+    height: 500px;  
     position: absolute;
     top: 45%;
     left: 55%;
     transform: translate(-50%, -50%);
     display: flex;
 }
+
 .left-reg-client{
     background-image: url("10.png");
-    width: 20vw;   /*50vw*/
+    width: 20vw; 
     height: 60vh;
     background-size: 100% 100%;
 }
@@ -253,6 +256,99 @@ body{
     display: inline-block;
     padding-top: 10px;
 }
+*/
+
+/* -------------------------Register form------------------- */
+.header-image2{
+    background-image: url("17.jpg");
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+}
+.main-div-reg{
+    width: 1000px;
+    height: 500px;    /*300*/
+    position: absolute;
+    top: 45%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+.left-reg{
+    background-image: url("17.jpg");
+    width: 20vw;   /*50vw*/
+    height: 80vh;
+    background-size: 100% 100%;
+}
+
+.left-reg h2{
+  color: white;
+}
+
+.left-reg label{
+  color: white;
+}
+.right-reg{
+    width: 20vw;
+    height: 80vh;
+    background-color: whitesmoke;
+    padding-left: 30px;
+}
+  
+.right-reg h2{
+    display: block;
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.left-reg label{
+    font-size: 20px;
+    display: block;
+    margin-top: 50px;
+}
+  
+.right-reg form label{
+    font-size: 20px;
+    display: block;
+    margin-top: 10px;
+}
+.right-reg form input{
+    padding: 5px;
+    border-radius: 10px;
+}
+.right-reg form select{
+    padding: 5px;
+    border-radius: 10px;
+}
+.submitbtn-reg{
+    display: block;
+    margin-top: 5px;
+    background-color: red;
+    color: white;
+}
+  
+.submitbtn-reg:hover{
+    background-color: rgba(12, 38, 153, 0.425);
+}
+  
+.space-reg{
+    text-align: center;
+}
+.create-reg p{
+    font-size: 20px;
+}
+.create-reg a{
+    text-decoration: none;
+}
+.back-reg{
+    padding-left: 140px;
+    padding-top: 10px;
+    display: inline-block;
+}
+
+
 
 /* ----------------------------------Quote form---------------------------------- */
 .header-quote{
@@ -331,6 +427,15 @@ body{
     margin-right: auto;
     padding: 10px;
   }
+
+tr{
+    text-align: center;
+}
+
+th {
+    font-size: 18px;
+}
+
   .caption-history{
     color: red;
   }
@@ -345,6 +450,23 @@ body{
   }
   
 
+/*----------------------logout--------------------  */
+.logoutbtn{
+    color:red;
+    font-size:20px;
+  /*   position:center; */
+  /*   display: flex; */
+  /*   aligns-item: center; */
+  /*   justify-content: center; */
+    position: relative;
+    margin:auto;
+    bottom: -5%;
+    right: -45%;
+  }
+  
+.logoutbtn:hover{
+    background-color: rgba(12, 38, 153, 0.425);
+}
 
 
 
